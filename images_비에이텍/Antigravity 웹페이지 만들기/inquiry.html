@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>문의 | 비에이텍㈜</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #003B6F;
+            --secondary-color: #0077B6;
+            --accent-color: #00B4D8;
+            --bg-color: #F0F7FF;
+            --text-color: #1A1A2E;
+            --white: #FFFFFF;
+            --gray-light: #E2E8F0;
+            --gray-dark: #4A5568;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6, .montserrat {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Noto Sans KR', sans-serif;
+            font-weight: 700;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Common Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .logo-kr {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            letter-spacing: -0.5px;
+        }
+
+        .logo-en {
+            font-size: 0.7rem;
+            color: var(--secondary-color);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-color);
+            position: relative;
+            padding: 5px 0;
+            transition: var(--transition);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--secondary-color);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--secondary-color);
+            transition: var(--transition);
+        }
+
+        nav a:hover::after, nav a.active::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 80px;
+            left: 0;
+            width: 100%;
+            background-color: var(--white);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            z-index: 999;
+            flex-direction: column;
+        }
+
+        .mobile-menu.show {
+            display: flex;
+        }
+
+        .mobile-menu a {
+            padding: 15px 20px;
+            border-bottom: 1px solid var(--gray-light);
+            font-weight: 500;
+        }
+
+        /* Page Hero */
+        .page-hero {
+            height: 350px;
+            background: linear-gradient(rgba(0, 59, 111, 0.8), rgba(0, 119, 182, 0.8)), url('data:image/svg+xml;utf8,<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M0,50 Q25,25 50,50 T100,50 L100,100 L0,100 Z" fill="%230077b6" opacity="0.3"/></svg>');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            margin-top: 80px;
+        }
+
+        .page-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        /* Section Commons */
+        .section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Inquiry Layout */
+        .inquiry-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 50px;
+            align-items: start;
+        }
+
+        /* Form Styling */
+        .inquiry-form-container {
+            background-color: var(--white);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--secondary-color);
+        }
+
+        .form-title {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--gray-light);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-label {
+            display: block;
+            font-weight: 600;
+            color: var(--text-color);
+            margin-bottom: 10px;
+        }
+
+        .form-label .required {
+            color: #E53E3E;
+            margin-left: 5px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--gray-light);
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 0 3px rgba(0, 119, 182, 0.1);
+        }
+
+        textarea.form-control {
+            resize: vertical;
+        }
+
+        /* Radio & Checkbox */
+        .radio-group, .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .custom-radio, .custom-checkbox {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .custom-radio input, .custom-checkbox input {
+            display: none;
+        }
+
+        .radio-mark, .check-mark {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--gray-light);
+            margin-right: 8px;
+            display: inline-block;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .radio-mark {
+            border-radius: 50%;
+        }
+
+        .check-mark {
+            border-radius: 4px;
+        }
+
+        .custom-radio input:checked ~ .radio-mark,
+        .custom-checkbox input:checked ~ .check-mark {
+            border-color: var(--secondary-color);
+            background-color: var(--secondary-color);
+        }
+
+        .custom-radio input:checked ~ .radio-mark::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 8px;
+            height: 8px;
+            background-color: var(--white);
+            border-radius: 50%;
+        }
+
+        .custom-checkbox input:checked ~ .check-mark::after {
+            content: '';
+            position: absolute;
+            left: 5px;
+            top: 2px;
+            width: 5px;
+            height: 10px;
+            border: solid var(--white);
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+
+        .privacy-box {
+            background-color: var(--bg-color);
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            color: var(--gray-dark);
+            height: 100px;
+            overflow-y: auto;
+            margin-bottom: 15px;
+            border: 1px solid var(--gray-light);
+        }
+
+        .btn-submit {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background-color: var(--secondary-color);
+            color: var(--white);
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-top: 30px;
+        }
+
+        .btn-submit:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 119, 182, 0.3);
+        }
+
+        /* Contact Info Sidebar */
+        .contact-sidebar {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 15px;
+            padding: 40px 30px;
+            color: var(--white);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 100px;
+        }
+
+        .contact-sidebar h3 {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            padding-bottom: 15px;
+            color: var(--white);
+        }
+
+        .contact-info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .contact-info-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .contact-info-icon {
+            font-size: 1.5rem;
+            color: var(--accent-color);
+            margin-top: 3px;
+        }
+
+        .contact-info-text strong {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+            color: var(--accent-color);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--text-color);
+            color: var(--gray-light);
+            padding: 60px 20px 30px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+
+        .footer-logo-kr {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 5px;
+        }
+
+        .footer-logo-en {
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            font-family: 'Montserrat', sans-serif;
+            margin-bottom: 20px;
+        }
+
+        .footer-info p {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .footer-info i {
+            margin-top: 5px;
+            color: var(--accent-color);
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 40px auto 0;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        /* Media Queries */
+        @media (max-width: 992px) {
+            .inquiry-layout {
+                grid-template-columns: 1fr;
+            }
+            .contact-sidebar {
+                position: static;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav ul { display: none; }
+            .hamburger { display: block; }
+            .page-hero h1 { font-size: 2.5rem; }
+            .inquiry-form-container { padding: 30px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                <span class="logo-kr">비에이텍㈜</span>
+                <span class="logo-en">Blue Advanced Technology Co., Ltd.</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="intro.html">기업소개</a></li>
+                    <li><a href="product.html">주요제품</a></li>
+                    <li><a href="equipment.html">장비</a></li>
+                    <li><a href="sales_history.html">업력</a></li>
+                    <li><a href="map.html">찾아오시는 길</a></li>
+                    <li><a href="inquiry.html" class="active">문의</a></li>
+                </ul>
+            </nav>
+            <div class="hamburger" id="hamburgerBtn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="intro.html">기업소개</a>
+            <a href="product.html">주요제품</a>
+            <a href="equipment.html">장비</a>
+            <a href="sales_history.html">업력</a>
+            <a href="map.html">찾아오시는 길</a>
+            <a href="inquiry.html">문의</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Page Hero -->
+        <section class="page-hero">
+            <div>
+                <h1>제품 문의 / 견적 요청</h1>
+                <p>Inquiry & Estimate</p>
+            </div>
+        </section>
+
+        <!-- Inquiry Section -->
+        <section class="section">
+            <div class="inquiry-layout">
+                <!-- Form Container -->
+                <div class="inquiry-form-container">
+                    <h2 class="form-title">온라인 문의</h2>
+                    
+                    <form id="inquiryForm" action="#" onsubmit="submitForm(event)">
+                        <!-- Inquiry Type -->
+                        <div class="form-group">
+                            <label class="form-label">문의 유형 <span class="required">*</span></label>
+                            <div class="radio-group">
+                                <label class="custom-radio">
+                                    <input type="radio" name="inquiry_type" value="purchase" checked>
+                                    <span class="radio-mark"></span>
+                                    제품 구매 문의
+                                </label>
+                                <label class="custom-radio">
+                                    <input type="radio" name="inquiry_type" value="install">
+                                    <span class="radio-mark"></span>
+                                    설치 견적 요청
+                                </label>
+                                <label class="custom-radio">
+                                    <input type="radio" name="inquiry_type" value="repair">
+                                    <span class="radio-mark"></span>
+                                    수리·유지보수
+                                </label>
+                                <label class="custom-radio">
+                                    <input type="radio" name="inquiry_type" value="other">
+                                    <span class="radio-mark"></span>
+                                    기타
+                                </label>
+                            </div>
+                        </div>
+
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                            <div class="form-group">
+                                <label for="companyName" class="form-label">회사/기관명 <span class="required">*</span></label>
+                                <input type="text" id="companyName" name="companyName" class="form-control" required placeholder="회사 또는 기관명을 입력하세요">
+                            </div>
+                            <div class="form-group">
+                                <label for="managerName" class="form-label">담당자명 <span class="required">*</span></label>
+                                <input type="text" id="managerName" name="managerName" class="form-control" required placeholder="성함을 입력하세요">
+                            </div>
+                        </div>
+
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                            <div class="form-group">
+                                <label for="contact" class="form-label">연락처 <span class="required">*</span></label>
+                                <input type="tel" id="contact" name="contact" class="form-control" required placeholder="예) 010-1234-5678">
+                            </div>
+                            <div class="form-group">
+                                <label for="email" class="form-label">이메일</label>
+                                <input type="email" id="email" name="email" class="form-control" placeholder="답변 받으실 이메일 주소">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">관심 제품 (다중 선택 가능)</label>
+                            <div class="checkbox-group">
+                                <label class="custom-checkbox">
+                                    <input type="checkbox" name="product" value="벌류트펌프">
+                                    <span class="check-mark"></span>
+                                    벌류트펌프
+                                </label>
+                                <label class="custom-checkbox">
+                                    <input type="checkbox" name="product" value="수중펌프">
+                                    <span class="check-mark"></span>
+                                    수중펌프
+                                </label>
+                                <label class="custom-checkbox">
+                                    <input type="checkbox" name="product" value="부스터펌프">
+                                    <span class="check-mark"></span>
+                                    부스터펌프
+                                </label>
+                                <label class="custom-checkbox">
+                                    <input type="checkbox" name="product" value="오수펌프">
+                                    <span class="check-mark"></span>
+                                    오수펌프
+                                </label>
+                                <label class="custom-checkbox">
+                                    <input type="checkbox" name="product" value="슬러지펌프">
+                                    <span class="check-mark"></span>
+                                    슬러지펌프
+                                </label>
+                                <label class="custom-checkbox">
+                                    <input type="checkbox" name="product" value="심정용펌프">
+                                    <span class="check-mark"></span>
+                                    심정용펌프
+                                </label>
+                                <label class="custom-checkbox">
+                                    <input type="checkbox" name="product" value="정량펌프">
+                                    <span class="check-mark"></span>
+                                    정량펌프
+                                </label>
+                                <label class="custom-checkbox">
+                                    <input type="checkbox" name="product" value="기타">
+                                    <span class="check-mark"></span>
+                                    기타
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="content" class="form-label">문의 내용 <span class="required">*</span></label>
+                            <textarea id="content" name="content" class="form-control" rows="5" required placeholder="제품 사양, 사용 목적, 설치 장소 등 상세한 내용을 적어주시면 더욱 빠르고 정확한 상담이 가능합니다."></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">개인정보 수집 및 이용 동의 <span class="required">*</span></label>
+                            <div class="privacy-box">
+                                비에이텍㈜는 고객님의 문의 처리를 위해 아래와 같이 개인정보를 수집 및 이용합니다.<br><br>
+                                1. 수집 항목: 회사/기관명, 담당자명, 연락처, 이메일<br>
+                                2. 수집 및 이용 목적: 문의에 대한 답변 및 상담 진행<br>
+                                3. 보유 및 이용 기간: 목적 달성 후 1년 이내 파기 (단, 관계 법령에 의해 보존할 필요가 있는 경우 해당 기간 동안 보존)
+                            </div>
+                            <label class="custom-checkbox" style="margin-top: 10px;">
+                                <input type="checkbox" id="privacyAgree" required>
+                                <span class="check-mark"></span>
+                                개인정보 수집 및 이용에 동의합니다.
+                            </label>
+                        </div>
+
+                        <button type="submit" class="btn-submit">
+                            문의 접수하기 <i class="fas fa-paper-plane" style="margin-left: 5px;"></i>
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Contact Sidebar -->
+                <div class="contact-sidebar">
+                    <h3>다이렉트 고객센터</h3>
+                    <p style="margin-bottom: 30px; opacity: 0.9; line-height: 1.5;">온라인 문의가 번거로우시다면 직접 연락주세요. 펌프 전문가가 친절하게 상담해 드립니다.</p>
+                    
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon"><i class="fas fa-phone-volume"></i></div>
+                        <div class="contact-info-text">
+                            <strong>전화 문의</strong>
+                            <div style="font-size: 1.8rem; font-weight: 700; font-family: 'Montserrat', sans-serif;">033-264-9243</div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon"><i class="fas fa-fax"></i></div>
+                        <div class="contact-info-text">
+                            <strong>팩스</strong>
+                            <div>033-251-5747</div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon"><i class="fas fa-clock"></i></div>
+                        <div class="contact-info-text">
+                            <strong>운영시간</strong>
+                            <div>평일 09:00 ~ 18:00<br><span style="font-size: 0.9rem; opacity: 0.8;">(점심시간 12:00 ~ 13:00)</span><br>토·일·공휴일 휴무</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div>
+                <div class="footer-logo-kr">비에이텍㈜</div>
+                <div class="footer-logo-en">Blue Advanced Technology Co., Ltd.</div>
+                <div class="footer-info">
+                    <p><i class="fas fa-map-marker-alt"></i> <span>강원특별자치도 춘천시 퇴계공단2길 64 (퇴계제2농공단지내)</span></p>
+                    <p><i class="fas fa-user-tie"></i> <span>대표이사: 조세연 | 사업자등록번호: 221-81-42625</span></p>
+                    <p><i class="fas fa-phone"></i> <span>TEL: 033-264-9243 | FAX: 033-251-5747</span></p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Copyright © 비에이텍㈜. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Mobile Menu Toggle
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        hamburgerBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('show');
+            const icon = hamburgerBtn.querySelector('i');
+            if (mobileMenu.classList.contains('show')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Parse query params (if came from product page)
+        window.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const product = urlParams.get('product');
+            
+            if (product) {
+                // Try to find checkbox with that product value
+                const checkboxes = document.querySelectorAll('input[name="product"]');
+                let found = false;
+                
+                checkboxes.forEach(cb => {
+                    if (cb.value === product || product.includes(cb.value)) {
+                        cb.checked = true;
+                        found = true;
+                    }
+                });
+                
+                // If not found in standard list, set "Others" and add to content
+                if (!found) {
+                    const otherCb = document.querySelector('input[name="product"][value="기타"]');
+                    if (otherCb) otherCb.checked = true;
+                    
+                    const contentArea = document.getElementById('content');
+                    contentArea.value = `[관심제품: ${product}]\n\n`;
+                }
+            }
+        });
+
+        // Form Submit
+        function submitForm(e) {
+            e.preventDefault(); // Prevent actual form submission for demo
+            
+            if (document.getElementById('privacyAgree').checked) {
+                alert("문의가 접수되었습니다. 빠른 시일 내에 연락드리겠습니다.");
+                document.getElementById('inquiryForm').reset();
+            } else {
+                alert("개인정보 수집 및 이용에 동의해 주세요.");
+            }
+        }
+    </script>
+</body>
+</html>
