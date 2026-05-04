@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>비에이텍㈜ | 깨끗한 물, 믿음직한 펌프</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #003B6F;
+            --secondary-color: #0077B6;
+            --accent-color: #00B4D8;
+            --bg-color: #F0F7FF;
+            --text-color: #1A1A2E;
+            --white: #FFFFFF;
+            --gray-light: #E2E8F0;
+            --gray-dark: #4A5568;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6, .montserrat {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Noto Sans KR', sans-serif;
+            font-weight: 700;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Common Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .logo-kr {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            letter-spacing: -0.5px;
+        }
+
+        .logo-en {
+            font-size: 0.7rem;
+            color: var(--secondary-color);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-color);
+            position: relative;
+            padding: 5px 0;
+            transition: var(--transition);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--secondary-color);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--secondary-color);
+            transition: var(--transition);
+        }
+
+        nav a:hover::after, nav a.active::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 80px;
+            left: 0;
+            width: 100%;
+            background-color: var(--white);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            z-index: 999;
+            flex-direction: column;
+        }
+
+        .mobile-menu.show {
+            display: flex;
+        }
+
+        .mobile-menu a {
+            padding: 15px 20px;
+            border-bottom: 1px solid var(--gray-light);
+            font-weight: 500;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-weight: 600;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+        }
+
+        .btn-primary {
+            background-color: var(--secondary-color);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 119, 182, 0.4);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--white);
+            color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            overflow: hidden;
+            padding-top: 80px;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .hero-subtitle {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 400;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .wave-container {
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+            z-index: 1;
+        }
+
+        .wave-container svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 150px;
+        }
+
+        .wave-container .shape-fill {
+            fill: var(--bg-color);
+        }
+
+        /* Section Commons */
+        .section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .section-desc {
+            font-size: 1.1rem;
+            color: var(--gray-dark);
+        }
+
+        /* Intro Summary */
+        .intro-summary {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .intro-card {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: var(--transition);
+            border-bottom: 4px solid transparent;
+        }
+
+        .intro-card:hover {
+            transform: translateY(-10px);
+            border-bottom: 4px solid var(--accent-color);
+            box-shadow: 0 15px 40px rgba(0,180,216,0.15);
+        }
+
+        .intro-icon {
+            font-size: 3rem;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+            background: rgba(0, 180, 216, 0.1);
+            width: 80px;
+            height: 80px;
+            line-height: 80px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .intro-card h3 {
+            font-size: 1.3rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        /* Products Preview */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            transition: var(--transition);
+            border: 1px solid var(--gray-light);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--secondary-color);
+            box-shadow: 0 10px 30px rgba(0,119,182,0.1);
+        }
+
+        .product-card-icon {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+        }
+
+        .product-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .product-card p {
+            color: var(--gray-dark);
+            margin-bottom: 25px;
+            flex-grow: 1;
+        }
+
+        .product-card .btn-more {
+            align-self: flex-start;
+            color: var(--secondary-color);
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .product-card .btn-more:hover {
+            color: var(--primary-color);
+        }
+
+        /* Certifications Banner */
+        .cert-section {
+            background-color: var(--white);
+            padding: 60px 0;
+            border-top: 1px solid var(--gray-light);
+            border-bottom: 1px solid var(--gray-light);
+        }
+
+        .cert-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .cert-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            opacity: 0.8;
+            transition: var(--transition);
+        }
+
+        .cert-item:hover {
+            opacity: 1;
+            transform: scale(1.05);
+        }
+
+        .cert-icon {
+            font-size: 2rem;
+            color: var(--secondary-color);
+        }
+
+        .cert-text {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        /* Clients Section */
+        .clients-section {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 80px 20px;
+        }
+
+        .clients-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .clients-header h2 {
+            color: var(--white);
+            font-size: 2.5rem;
+        }
+
+        .clients-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .client-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(5px);
+            padding: 20px 30px;
+            border-radius: 10px;
+            font-weight: 500;
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: var(--transition);
+        }
+
+        .client-card:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-3px);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 20px;
+            text-align: center;
+            background: linear-gradient(to right, rgba(240, 247, 255, 0.9), rgba(240, 247, 255, 0.9)), url('data:image/svg+xml;utf8,<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M10 10h80v80h-80z" fill="none" stroke="%2300b4d8" stroke-width="1" stroke-opacity="0.2"/></svg>');
+        }
+
+        .cta-title {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .cta-phone {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+            margin-bottom: 30px;
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--text-color);
+            color: var(--gray-light);
+            padding: 60px 20px 30px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+
+        .footer-logo-kr {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 5px;
+        }
+
+        .footer-logo-en {
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            font-family: 'Montserrat', sans-serif;
+            margin-bottom: 20px;
+        }
+
+        .footer-info p {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .footer-info i {
+            margin-top: 5px;
+            color: var(--accent-color);
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 40px auto 0;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        /* Media Queries */
+        @media (max-width: 992px) {
+            .hero-title { font-size: 2.8rem; }
+            .product-grid { grid-template-columns: repeat(2, 1fr); }
+            .cert-container { justify-content: center; }
+        }
+
+        @media (max-width: 768px) {
+            nav ul { display: none; }
+            .hamburger { display: block; }
+            .hero-title { font-size: 2.2rem; }
+            .hero-subtitle { font-size: 1rem; }
+            .section-title { font-size: 2rem; }
+            .cta-phone { font-size: 2rem; }
+            .product-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                <span class="logo-kr">비에이텍㈜</span>
+                <span class="logo-en">Blue Advanced Technology Co., Ltd.</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="intro.html">기업소개</a></li>
+                    <li><a href="product.html">주요제품</a></li>
+                    <li><a href="equipment.html">장비</a></li>
+                    <li><a href="sales_history.html">업력</a></li>
+                    <li><a href="map.html">찾아오시는 길</a></li>
+                    <li><a href="inquiry.html">문의</a></li>
+                </ul>
+            </nav>
+            <div class="hamburger" id="hamburgerBtn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="intro.html">기업소개</a>
+            <a href="product.html">주요제품</a>
+            <a href="equipment.html">장비</a>
+            <a href="sales_history.html">업력</a>
+            <a href="map.html">찾아오시는 길</a>
+            <a href="inquiry.html">문의</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">깨끗한 물, 믿음직한 펌프</h1>
+                <p class="hero-subtitle">Water Pump Manufacturing & Engineering Specialists</p>
+                <div class="hero-buttons">
+                    <a href="product.html" class="btn btn-outline">제품 보기</a>
+                    <a href="inquiry.html" class="btn btn-primary">문의하기</a>
+                </div>
+            </div>
+            <div class="wave-container">
+                <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+                    <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118,136.24,129.41,208.62,119.5,247.4,114.16,285.49,94.84,321.39,56.44Z" class="shape-fill"></path>
+                </svg>
+            </div>
+        </section>
+
+        <!-- Company Intro Summary -->
+        <section class="section">
+            <div class="section-header">
+                <h2 class="section-title">최고의 기술력과 신뢰</h2>
+                <p class="section-desc">2010년 창업 이래 강원도 대표 펌프 전문기업으로 성장하였습니다.<br>ISO 9001:2015 인증, 경영혁신형 중소기업(Main-Biz) 선정</p>
+            </div>
+            <div class="intro-summary">
+                <div class="intro-card">
+                    <div class="intro-icon"><i class="fas fa-cogs"></i></div>
+                    <h3>설계 및 제조</h3>
+                    <p>현장의 특성과 요구에 맞춘 최적의 펌프를 직접 설계하고 제조합니다.</p>
+                </div>
+                <div class="intro-card">
+                    <div class="intro-icon"><i class="fas fa-tools"></i></div>
+                    <h3>설치 및 시공</h3>
+                    <p>다년간의 노하우를 바탕으로 완벽하고 안전한 설치 및 시공을 보장합니다.</p>
+                </div>
+                <div class="intro-card">
+                    <div class="intro-icon"><i class="fas fa-clipboard-check"></i></div>
+                    <h3>유지 및 보수</h3>
+                    <p>철저한 사후 관리와 신속한 A/S로 최상의 성능을 지속적으로 유지합니다.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Products Preview -->
+        <section class="section">
+            <div class="section-header">
+                <h2 class="section-title">주요 제품</h2>
+                <p class="section-desc">다양한 용도에 최적화된 고품질 펌프 라인업</p>
+            </div>
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-card-icon"><i class="fas fa-water"></i></div>
+                    <h3>벌류트펌프</h3>
+                    <p>산업용, 농업용 등 대용량 이송에 적합한 고효율 펌프</p>
+                    <a href="product.html" class="btn-more">자세히 보기 <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="product-card">
+                    <div class="product-card-icon"><i class="fas fa-arrow-circle-down"></i></div>
+                    <h3>수중펌프</h3>
+                    <p>수중에서 동작하며 농·공업용수 공급 및 배수에 탁월</p>
+                    <a href="product.html" class="btn-more">자세히 보기 <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="product-card">
+                    <div class="product-card-icon"><i class="fas fa-tachometer-alt"></i></div>
+                    <h3>부스터펌프</h3>
+                    <p>안정적인 수압 유지가 필요한 고층 건물 및 산업 시설용</p>
+                    <a href="product.html" class="btn-more">자세히 보기 <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="product-card">
+                    <div class="product-card-icon"><i class="fas fa-recycle"></i></div>
+                    <h3>오수펌프</h3>
+                    <p>오물, 하수 등의 배출 처리를 위한 강력한 내구성 펌프</p>
+                    <a href="product.html" class="btn-more">자세히 보기 <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="product-card">
+                    <div class="product-card-icon"><i class="fas fa-tint-slash"></i></div>
+                    <h3>슬러지펌프</h3>
+                    <p>고농도 슬러지 및 점성 액체 이송에 최적화된 특수 펌프</p>
+                    <a href="product.html" class="btn-more">자세히 보기 <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="product-card">
+                    <div class="product-card-icon"><i class="fas fa-level-down-alt"></i></div>
+                    <h3>심정용펌프</h3>
+                    <p>깊은 지하수를 끌어올리기 위한 고양정 설계 펌프</p>
+                    <a href="product.html" class="btn-more">자세히 보기 <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certifications & Awards Banner -->
+        <section class="cert-section">
+            <div class="cert-container">
+                <div class="cert-item">
+                    <i class="fas fa-certificate cert-icon"></i>
+                    <span class="cert-text">ISO 9001:2015 인증</span>
+                </div>
+                <div class="cert-item">
+                    <i class="fas fa-award cert-icon"></i>
+                    <span class="cert-text">경영혁신형 중소기업 (Main-Biz)</span>
+                </div>
+                <div class="cert-item">
+                    <i class="fas fa-users cert-icon"></i>
+                    <span class="cert-text">한국펌프공업협동조합 조합원</span>
+                </div>
+                <div class="cert-item">
+                    <i class="fas fa-medal cert-icon"></i>
+                    <span class="cert-text">강원도지사 표창 (2017)</span>
+                </div>
+                <div class="cert-item">
+                    <i class="fas fa-rocket cert-icon"></i>
+                    <span class="cert-text">벤처기업인증 (2012)</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Delivery Performance -->
+        <section class="clients-section">
+            <div class="clients-header">
+                <h2>주요 납품 실적</h2>
+                <p>수많은 공공기관과 기업이 비에이텍의 기술력을 신뢰합니다.</p>
+            </div>
+            <div class="clients-grid">
+                <div class="client-card">춘천시 상하수도사업본부</div>
+                <div class="client-card">철원군 농업기술센터</div>
+                <div class="client-card">양양군 상하수도사업소</div>
+                <div class="client-card">삼척시 상수도사업소</div>
+                <div class="client-card">강원도인재개발원</div>
+                <div class="client-card">홍천군청</div>
+                <div class="client-card">양구군 상하수도사업소</div>
+            </div>
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="sales_history.html" class="btn btn-outline" style="border-color: rgba(255,255,255,0.5);">전체 실적 보기</a>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <h2 class="cta-title">지금 바로 상담하세요</h2>
+            <p style="margin-bottom: 20px; color: var(--gray-dark);">펌프 설계부터 시공, 유지보수까지 전문가가 친절하게 상담해 드립니다.</p>
+            <div class="cta-phone">
+                <i class="fas fa-phone-alt"></i> 033-264-9243
+            </div>
+            <br>
+            <a href="inquiry.html" class="btn btn-primary" style="padding: 15px 40px; font-size: 1.1rem;">온라인 문의하기</a>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div>
+                <div class="footer-logo-kr">비에이텍㈜</div>
+                <div class="footer-logo-en">Blue Advanced Technology Co., Ltd.</div>
+                <div class="footer-info">
+                    <p><i class="fas fa-map-marker-alt"></i> <span>강원특별자치도 춘천시 퇴계공단2길 64 (퇴계제2농공단지내)</span></p>
+                    <p><i class="fas fa-user-tie"></i> <span>대표이사: 조세연 | 사업자등록번호: 221-81-42625</span></p>
+                    <p><i class="fas fa-phone"></i> <span>TEL: 033-264-9243 | FAX: 033-251-5747</span></p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Copyright © 비에이텍㈜. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Mobile Menu Toggle
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        hamburgerBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('show');
+            const icon = hamburgerBtn.querySelector('i');
+            if (mobileMenu.classList.contains('show')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+    </script>
+</body>
+</html>

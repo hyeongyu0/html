@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>주요 사업 실적 | 비에이텍㈜</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #003B6F;
+            --secondary-color: #0077B6;
+            --accent-color: #00B4D8;
+            --bg-color: #F0F7FF;
+            --text-color: #1A1A2E;
+            --white: #FFFFFF;
+            --gray-light: #E2E8F0;
+            --gray-dark: #4A5568;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6, .montserrat {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Noto Sans KR', sans-serif;
+            font-weight: 700;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Common Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .logo-kr {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            letter-spacing: -0.5px;
+        }
+
+        .logo-en {
+            font-size: 0.7rem;
+            color: var(--secondary-color);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-color);
+            position: relative;
+            padding: 5px 0;
+            transition: var(--transition);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--secondary-color);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--secondary-color);
+            transition: var(--transition);
+        }
+
+        nav a:hover::after, nav a.active::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 80px;
+            left: 0;
+            width: 100%;
+            background-color: var(--white);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            z-index: 999;
+            flex-direction: column;
+        }
+
+        .mobile-menu.show {
+            display: flex;
+        }
+
+        .mobile-menu a {
+            padding: 15px 20px;
+            border-bottom: 1px solid var(--gray-light);
+            font-weight: 500;
+        }
+
+        /* Page Hero */
+        .page-hero {
+            height: 350px;
+            background: linear-gradient(rgba(0, 59, 111, 0.8), rgba(0, 119, 182, 0.8)), url('data:image/svg+xml;utf8,<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M0,50 Q25,25 50,50 T100,50 L100,100 L0,100 Z" fill="%230077b6" opacity="0.3"/></svg>');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            margin-top: 80px;
+        }
+
+        .page-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        /* Section Commons */
+        .section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background-color: var(--accent-color);
+        }
+
+        /* Stats Banner */
+        .stats-banner {
+            background-color: var(--white);
+            padding: 50px 20px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin: -60px auto 60px;
+            position: relative;
+            z-index: 10;
+            max-width: 1000px;
+        }
+
+        .stat-item {
+            text-align: center;
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .stat-item i {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            margin-bottom: 15px;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            font-family: 'Montserrat', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .stat-number span {
+            font-size: 1.5rem;
+            margin-left: 5px;
+            color: var(--secondary-color);
+        }
+
+        .stat-text {
+            font-size: 1.1rem;
+            color: var(--gray-dark);
+            font-weight: 500;
+        }
+
+        /* Clients Badge */
+        .clients-badge-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 50px;
+        }
+
+        .client-badge {
+            background-color: var(--white);
+            color: var(--primary-color);
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1.05rem;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+            border: 1px solid var(--gray-light);
+            transition: var(--transition);
+        }
+
+        .client-badge:hover {
+            background-color: var(--primary-color);
+            color: var(--white);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,59,111,0.2);
+        }
+
+        /* Filter Tabs */
+        .filter-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        .filter-tab {
+            padding: 8px 20px;
+            background-color: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .filter-tab.active, .filter-tab:hover {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        /* Table */
+        .table-responsive {
+            overflow-x: auto;
+            background-color: var(--white);
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+
+        .history-table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 800px;
+        }
+
+        .history-table th, .history-table td {
+            padding: 15px 20px;
+            text-align: center;
+            border-bottom: 1px solid var(--gray-light);
+        }
+
+        .history-table th {
+            background-color: rgba(0, 119, 182, 0.05);
+            color: var(--primary-color);
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .history-table td.text-left {
+            text-align: left;
+        }
+
+        .history-table tbody tr {
+            transition: var(--transition);
+        }
+
+        .history-table tbody tr:hover {
+            background-color: rgba(0, 180, 216, 0.05);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--text-color);
+            color: var(--gray-light);
+            padding: 60px 20px 30px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+
+        .footer-logo-kr {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 5px;
+        }
+
+        .footer-logo-en {
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            font-family: 'Montserrat', sans-serif;
+            margin-bottom: 20px;
+        }
+
+        .footer-info p {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .footer-info i {
+            margin-top: 5px;
+            color: var(--accent-color);
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 40px auto 0;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            nav ul { display: none; }
+            .hamburger { display: block; }
+            .page-hero h1 { font-size: 2.5rem; }
+            .stats-banner { margin: 20px auto 40px; flex-direction: column; gap: 20px; }
+            .stat-number { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                <span class="logo-kr">비에이텍㈜</span>
+                <span class="logo-en">Blue Advanced Technology Co., Ltd.</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="intro.html">기업소개</a></li>
+                    <li><a href="product.html">주요제품</a></li>
+                    <li><a href="equipment.html">장비</a></li>
+                    <li><a href="sales_history.html" class="active">업력</a></li>
+                    <li><a href="map.html">찾아오시는 길</a></li>
+                    <li><a href="inquiry.html">문의</a></li>
+                </ul>
+            </nav>
+            <div class="hamburger" id="hamburgerBtn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="intro.html">기업소개</a>
+            <a href="product.html">주요제품</a>
+            <a href="equipment.html">장비</a>
+            <a href="sales_history.html">업력</a>
+            <a href="map.html">찾아오시는 길</a>
+            <a href="inquiry.html">문의</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Page Hero -->
+        <section class="page-hero">
+            <div>
+                <h1>주요 사업 실적</h1>
+                <p>Sales History & Performance</p>
+            </div>
+        </section>
+
+        <!-- Stats Banner -->
+        <div class="section" style="padding-top: 0; padding-bottom: 0;">
+            <div class="stats-banner">
+                <div class="stat-item">
+                    <i class="fas fa-box-open"></i>
+                    <div class="stat-number"><span class="counter" data-target="400">0</span><span>+</span></div>
+                    <div class="stat-text">누적 납품 건수</div>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-handshake"></i>
+                    <div class="stat-number"><span class="counter" data-target="30">0</span><span>+</span></div>
+                    <div class="stat-text">주요 발주처 수</div>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-calendar-check"></i>
+                    <div class="stat-number"><span class="counter" data-target="14">0</span><span>+</span></div>
+                    <div class="stat-text">사업 연수</div>
+                </div>
+            </div>
+        </div>
+
+        <section class="section">
+            <div class="section-header">
+                <h2 class="section-title">주요 발주처</h2>
+            </div>
+            <div class="clients-badge-container">
+                <div class="client-badge">춘천시상하수도사업본부</div>
+                <div class="client-badge">강원도인재개발원</div>
+                <div class="client-badge">철원군농업기술센터</div>
+                <div class="client-badge">양양군상하수도사업소</div>
+                <div class="client-badge">양구군상하수도사업소</div>
+                <div class="client-badge">삼척시상수도사업소</div>
+                <div class="client-badge">홍천군청</div>
+            </div>
+
+            <div class="section-header" style="margin-top: 80px;">
+                <h2 class="section-title">납품 실적 내역</h2>
+            </div>
+            
+            <div class="filter-tabs">
+                <button class="filter-tab active" data-year="2019">2019년</button>
+                <button class="filter-tab" data-year="all">전체보기</button>
+            </div>
+
+            <div class="table-responsive">
+                <table class="history-table">
+                    <thead>
+                        <tr>
+                            <th width="10%">번호</th>
+                            <th width="20%">발주처</th>
+                            <th width="40%">사업명</th>
+                            <th width="15%">납품 제품</th>
+                            <th width="15%">납품연도</th>
+                        </tr>
+                    </thead>
+                    <tbody id="historyBody">
+                        <!-- Data will be populated via JS -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div>
+                <div class="footer-logo-kr">비에이텍㈜</div>
+                <div class="footer-logo-en">Blue Advanced Technology Co., Ltd.</div>
+                <div class="footer-info">
+                    <p><i class="fas fa-map-marker-alt"></i> <span>강원특별자치도 춘천시 퇴계공단2길 64 (퇴계제2농공단지내)</span></p>
+                    <p><i class="fas fa-user-tie"></i> <span>대표이사: 조세연 | 사업자등록번호: 221-81-42625</span></p>
+                    <p><i class="fas fa-phone"></i> <span>TEL: 033-264-9243 | FAX: 033-251-5747</span></p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Copyright © 비에이텍㈜. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Mobile Menu Toggle
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        hamburgerBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('show');
+            const icon = hamburgerBtn.querySelector('i');
+            if (mobileMenu.classList.contains('show')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Counter Animation
+        const counters = document.querySelectorAll('.counter');
+        const speed = 50; // The lower the slower
+
+        const startCounters = () => {
+            counters.forEach(counter => {
+                const updateCount = () => {
+                    const target = +counter.getAttribute('data-target');
+                    const count = +counter.innerText;
+                    
+                    const inc = target / speed;
+
+                    if (count < target) {
+                        counter.innerText = Math.ceil(count + inc);
+                        setTimeout(updateCount, 40);
+                    } else {
+                        counter.innerText = target;
+                    }
+                };
+                updateCount();
+            });
+        };
+
+        // Trigger counter animation on scroll
+        let counterStarted = false;
+        window.addEventListener('scroll', () => {
+            const statsBanner = document.querySelector('.stats-banner');
+            if (!counterStarted && statsBanner) {
+                const bannerPosition = statsBanner.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight;
+                if (bannerPosition < screenPosition) {
+                    startCounters();
+                    counterStarted = true;
+                }
+            }
+        });
+
+        // If banner is already in view on load
+        window.addEventListener('load', () => {
+            const statsBanner = document.querySelector('.stats-banner');
+            if (statsBanner && statsBanner.getBoundingClientRect().top < window.innerHeight) {
+                startCounters();
+                counterStarted = true;
+            }
+        });
+
+        // Sales History Data
+        const historyData = [
+            { no: 404, client: '홍천군', name: '농업용수(양덕원리 취수펌프) 배수관로 설치공사', product: '진공펌프', date: '2019.06' },
+            { no: 405, client: '춘천시상하수도사업본부', name: '2019년 상수도시설 확충공사 (서면당림리 272번지일원외)', product: '부스터펌프', date: '2019.08' },
+            { no: 406, client: '춘천시상하수도사업본부', name: '용산정수장 샘플링펌프', product: '샘플링펌프', date: '2019.06' },
+            { no: 407, client: '철원군상하수도사업소', name: '김화하수처리구역(외수3처리분구) 하수관거정비사업', product: '수중블렉스펌프', date: '2019.05' },
+            { no: 408, client: '춘천시상하수도사업본부', name: '근화동 유수지 지배수펌프 증설공사', product: '수중펌프', date: '2019.06' },
+            { no: 409, client: '강원도인재개발원', name: '본관기계실 노후펌프 교체공사', product: '노후펌프 교체', date: '2019.06' },
+            { no: 410, client: '춘천시상하수도사업본부', name: '수중펌프', product: '수중펌프', date: '2019.06' },
+            { no: 411, client: '홍천군', name: '솔무치지구 밭기반 정비사업1차분', product: '심정펌프', date: '2019' },
+            { no: 412, client: '삼척시상수도사업소', name: '미로상수도 확장공사', product: '부스터펌프', date: '2019' },
+            { no: 413, client: '양양군상하수도사업소', name: '강현가압장 가압시설 증설공사', product: '부스터펌프', date: '2019.08' },
+            { no: 414, client: '양구군상하수도사업소', name: '송현 공공하수처리시설 설치공사', product: '펌프류', date: '2019' },
+            { no: 415, client: '양구군상하수도사업소', name: '구암 공공하수처리시설 관급자재', product: '펌프류', date: '2019' },
+            { no: 416, client: '양구군상하수도사업소', name: '죽곡 공공하수처리시설 관급자재', product: '펌프류', date: '2019' },
+            { no: 417, client: '삼척시하수도사업소', name: '읍상빗물펌프장 펌프 수리수선', product: '펌프 수리', date: '2019.06' },
+            { no: 418, client: '철원군농업기술센터', name: '2019년 만경보 수중펌프', product: '수중펌프', date: '2019.07' },
+            { no: 419, client: '철원군농업기술센터', name: '2019년 철원 대마지구(대마리990번지) 수리시설 정비사업', product: '수중펌프', date: '2019' }
+        ];
+
+        const historyBody = document.getElementById('historyBody');
+        const filterBtns = document.querySelectorAll('.filter-tab');
+
+        function renderTable(filterYear) {
+            historyBody.innerHTML = '';
+            
+            // For now, filterYear is just to demonstrate functionality as all data is 2019.
+            // If filterYear is 'all', show all. Otherwise show matching year.
+            const filteredData = filterYear === 'all' 
+                ? historyData 
+                : historyData.filter(d => d.date.includes(filterYear));
+
+            filteredData.forEach(data => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td>${data.no}</td>
+                    <td><strong>${data.client}</strong></td>
+                    <td class="text-left">${data.name}</td>
+                    <td>${data.product}</td>
+                    <td style="font-family: 'Montserrat', sans-serif;">${data.date}</td>
+                `;
+                historyBody.appendChild(tr);
+            });
+        }
+
+        // Init
+        renderTable('2019');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                renderTable(btn.getAttribute('data-year'));
+            });
+        });
+
+    </script>
+</body>
+</html>

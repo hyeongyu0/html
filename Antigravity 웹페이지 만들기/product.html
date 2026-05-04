@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>주요제품 | 비에이텍㈜</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #003B6F;
+            --secondary-color: #0077B6;
+            --accent-color: #00B4D8;
+            --bg-color: #F0F7FF;
+            --text-color: #1A1A2E;
+            --white: #FFFFFF;
+            --gray-light: #E2E8F0;
+            --gray-dark: #4A5568;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6, .montserrat {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Noto Sans KR', sans-serif;
+            font-weight: 700;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Common Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .logo-kr {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            letter-spacing: -0.5px;
+        }
+
+        .logo-en {
+            font-size: 0.7rem;
+            color: var(--secondary-color);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-color);
+            position: relative;
+            padding: 5px 0;
+            transition: var(--transition);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--secondary-color);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--secondary-color);
+            transition: var(--transition);
+        }
+
+        nav a:hover::after, nav a.active::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 80px;
+            left: 0;
+            width: 100%;
+            background-color: var(--white);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            z-index: 999;
+            flex-direction: column;
+        }
+
+        .mobile-menu.show {
+            display: flex;
+        }
+
+        .mobile-menu a {
+            padding: 15px 20px;
+            border-bottom: 1px solid var(--gray-light);
+            font-weight: 500;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 600;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            font-size: 0.9rem;
+        }
+
+        .btn-primary {
+            background-color: var(--secondary-color);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-color);
+        }
+
+        /* Page Hero */
+        .page-hero {
+            height: 350px;
+            background: linear-gradient(rgba(0, 59, 111, 0.8), rgba(0, 119, 182, 0.8)), url('data:image/svg+xml;utf8,<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M0,50 Q25,25 50,50 T100,50 L100,100 L0,100 Z" fill="%230077b6" opacity="0.3"/></svg>');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            margin-top: 80px;
+        }
+
+        .page-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        /* Section */
+        .section {
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Tabs */
+        .filter-tabs {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 50px;
+        }
+
+        .filter-tab {
+            padding: 10px 25px;
+            background-color: var(--white);
+            border: 1px solid var(--gray-light);
+            border-radius: 30px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            color: var(--gray-dark);
+        }
+
+        .filter-tab:hover, .filter-tab.active {
+            background-color: var(--primary-color);
+            color: var(--white);
+            border-color: var(--primary-color);
+        }
+
+        /* Product Grid */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border: 2px solid transparent;
+            transition: var(--transition);
+            cursor: pointer;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--secondary-color);
+            box-shadow: 0 10px 25px rgba(0,119,182,0.15);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: -15px;
+            right: 20px;
+            background-color: var(--accent-color);
+            color: var(--white);
+            font-size: 0.75rem;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-weight: 600;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .product-icon {
+            font-size: 3rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+        }
+
+        .product-card h3 {
+            font-size: 1.4rem;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+
+        .product-num {
+            font-size: 0.85rem;
+            color: var(--gray-dark);
+            margin-bottom: 15px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .product-desc {
+            color: var(--text-color);
+            font-size: 0.95rem;
+            margin-bottom: 25px;
+            flex-grow: 1;
+        }
+
+        .product-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid var(--gray-light);
+            padding-top: 15px;
+        }
+
+        .btn-inquiry {
+            background-color: transparent;
+            color: var(--secondary-color);
+            border: 1px solid var(--secondary-color);
+        }
+
+        .btn-inquiry:hover {
+            background-color: var(--secondary-color);
+            color: var(--white);
+        }
+
+        .view-detail {
+            color: var(--gray-dark);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .product-card:hover .view-detail {
+            color: var(--primary-color);
+        }
+
+        /* Modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+            z-index: 1001;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+
+        .modal-overlay.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background-color: var(--white);
+            width: 90%;
+            max-width: 600px;
+            border-radius: 15px;
+            padding: 40px;
+            position: relative;
+            transform: translateY(20px);
+            transition: var(--transition);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        .modal-overlay.show .modal-content {
+            transform: translateY(0);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 1.5rem;
+            color: var(--gray-dark);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .modal-close:hover {
+            color: var(--primary-color);
+            transform: rotate(90deg);
+        }
+
+        .modal-header {
+            margin-bottom: 25px;
+            border-bottom: 2px solid var(--gray-light);
+            padding-bottom: 15px;
+        }
+
+        .modal-header h2 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+        }
+
+        .modal-header .modal-num {
+            color: var(--gray-dark);
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .modal-body p {
+            margin-bottom: 15px;
+        }
+
+        .modal-body strong {
+            color: var(--secondary-color);
+            display: inline-block;
+            width: 100px;
+        }
+
+        .modal-footer {
+            margin-top: 30px;
+            text-align: right;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--text-color);
+            color: var(--gray-light);
+            padding: 60px 20px 30px;
+            margin-top: 40px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+
+        .footer-logo-kr {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 5px;
+        }
+
+        .footer-logo-en {
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            font-family: 'Montserrat', sans-serif;
+            margin-bottom: 20px;
+        }
+
+        .footer-info p {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .footer-info i {
+            margin-top: 5px;
+            color: var(--accent-color);
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 40px auto 0;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            nav ul { display: none; }
+            .hamburger { display: block; }
+            .page-hero h1 { font-size: 2.5rem; }
+            .product-grid { grid-template-columns: 1fr; }
+            .modal-content { padding: 30px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                <span class="logo-kr">비에이텍㈜</span>
+                <span class="logo-en">Blue Advanced Technology Co., Ltd.</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="intro.html">기업소개</a></li>
+                    <li><a href="product.html" class="active">주요제품</a></li>
+                    <li><a href="equipment.html">장비</a></li>
+                    <li><a href="sales_history.html">업력</a></li>
+                    <li><a href="map.html">찾아오시는 길</a></li>
+                    <li><a href="inquiry.html">문의</a></li>
+                </ul>
+            </nav>
+            <div class="hamburger" id="hamburgerBtn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="intro.html">기업소개</a>
+            <a href="product.html">주요제품</a>
+            <a href="equipment.html">장비</a>
+            <a href="sales_history.html">업력</a>
+            <a href="map.html">찾아오시는 길</a>
+            <a href="inquiry.html">문의</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Page Hero -->
+        <section class="page-hero">
+            <div>
+                <h1>주요 제품</h1>
+                <p>Main Products</p>
+            </div>
+        </section>
+
+        <!-- Products Section -->
+        <section class="section">
+            <div class="filter-tabs">
+                <div class="filter-tab active" data-filter="all">전체보기</div>
+                <div class="filter-tab" data-filter="volute">벌류트펌프</div>
+                <div class="filter-tab" data-filter="submersible">수중·오수펌프</div>
+                <div class="filter-tab" data-filter="special">특수펌프</div>
+            </div>
+
+            <div class="product-grid" id="productGrid">
+                <!-- Products will be injected by JavaScript -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Product Detail Modal -->
+    <div class="modal-overlay" id="productModal">
+        <div class="modal-content">
+            <i class="fas fa-times modal-close" id="closeModal"></i>
+            <div class="modal-header">
+                <h2 id="modalName">제품명</h2>
+                <div class="modal-num" id="modalNum">물품분류번호</div>
+            </div>
+            <div class="modal-body">
+                <p><strong>규격/특기사항:</strong> <span id="modalSpec"></span></p>
+                <p><strong>용도:</strong> <span id="modalDesc"></span></p>
+                <p><strong>납품실적 요약:</strong> 전국 다수의 상하수도사업본부 및 농업기술센터 등</p>
+            </div>
+            <div class="modal-footer">
+                <a href="inquiry.html" class="btn btn-primary" id="modalInquiryBtn">제품 문의하기</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div>
+                <div class="footer-logo-kr">비에이텍㈜</div>
+                <div class="footer-logo-en">Blue Advanced Technology Co., Ltd.</div>
+                <div class="footer-info">
+                    <p><i class="fas fa-map-marker-alt"></i> <span>강원특별자치도 춘천시 퇴계공단2길 64 (퇴계제2농공단지내)</span></p>
+                    <p><i class="fas fa-user-tie"></i> <span>대표이사: 조세연 | 사업자등록번호: 221-81-42625</span></p>
+                    <p><i class="fas fa-phone"></i> <span>TEL: 033-264-9243 | FAX: 033-251-5747</span></p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Copyright © 비에이텍㈜. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Mobile Menu Toggle
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        hamburgerBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('show');
+            const icon = hamburgerBtn.querySelector('i');
+            if (mobileMenu.classList.contains('show')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Product Data
+        const products = [
+            { id: 1, category: 'volute', name: '다단벌류트펌프', num: '4015150301', spec: '토출구경 200mm~600mm', desc: '고양정이 요구되는 산업시설 및 급수용으로 적합한 고효율 펌프입니다.', icon: 'fa-water' },
+            { id: 2, category: 'volute', name: '단단벌류트펌프', num: '4015150302', spec: '토출구경 200mm~600mm', desc: '일반적인 양수 및 배수용으로 널리 사용되며 유지보수가 용이합니다.', icon: 'fa-water' },
+            { id: 3, category: 'volute', name: '양흡입벌류트펌프', num: '4015150303', spec: '토출구경 200mm~600mm', desc: '대용량의 유체를 안정적으로 이송하는데 최적화된 설계입니다.', icon: 'fa-water' },
+            { id: 4, category: 'volute', name: '편흡입벌류트펌프', num: '4015150304', spec: '토출구경 200mm~600mm', desc: '컴팩트한 구조로 공간 활용성이 뛰어나며 신뢰성이 높습니다.', icon: 'fa-water' },
+            { id: 5, category: 'special', name: '정량펌프', num: '4015150501', spec: '—', desc: '정확한 유량 제어가 필요한 화학공정 및 수처리 시설에 필수적인 펌프입니다.', icon: 'fa-vial' },
+            { id: 6, category: 'submersible', name: '수중펌프', num: '4015151301', spec: '토출구경 200mm~600mm', desc: '수중에 직접 설치되어 소음이 적고 깊은 곳의 유체를 효과적으로 배출합니다.', icon: 'fa-arrow-circle-down' },
+            { id: 7, category: 'submersible', name: '오수펌프', num: '4015151701', spec: '토출구경 200mm~600mm', desc: '이물질이 섞인 하수 및 오수를 막힘없이 이송하는 내구성이 뛰어난 펌프입니다.', icon: 'fa-recycle' },
+            { id: 8, category: 'special', name: '슬러지펌프', num: '4015152501', spec: '토출구경 200mm~600mm', desc: '고점도 및 슬러지 형태의 유체를 이송하기 위한 특수 목적 펌프입니다.', icon: 'fa-tint-slash' },
+            { id: 9, category: 'special', name: '심정용펌프', num: '4015154701', spec: '토출구경 200mm~600mm', desc: '깊은 우물이나 지하수 관정에서 물을 끌어올리기 위한 고양정 특화 펌프입니다.', icon: 'fa-level-down-alt' },
+            { id: 10, category: 'special', name: '전진공동펌프', num: '4015155301', spec: '—', desc: '점성이 매우 높은 액체나 고형물이 함유된 액체를 맥동 없이 이송합니다.', icon: 'fa-cogs' },
+            { id: 11, category: 'special', name: '부스터펌프', num: '4015156601', spec: '토출구경 200mm~600mm', desc: '관로의 수압을 일정하게 유지시켜주는 시스템으로 고층 건물에 주로 사용됩니다.', icon: 'fa-tachometer-alt' },
+        ];
+
+        const productGrid = document.getElementById('productGrid');
+        const filterTabs = document.querySelectorAll('.filter-tab');
+        
+        // Modal elements
+        const modal = document.getElementById('productModal');
+        const closeModal = document.getElementById('closeModal');
+        const modalName = document.getElementById('modalName');
+        const modalNum = document.getElementById('modalNum');
+        const modalSpec = document.getElementById('modalSpec');
+        const modalDesc = document.getElementById('modalDesc');
+
+        // Render products
+        function renderProducts(filterCategory) {
+            productGrid.innerHTML = '';
+            
+            const filteredProducts = filterCategory === 'all' 
+                ? products 
+                : products.filter(p => p.category === filterCategory);
+                
+            filteredProducts.forEach(product => {
+                const card = document.createElement('div');
+                card.className = 'product-card';
+                card.innerHTML = `
+                    <div class="product-badge">직접생산 · 중기물품</div>
+                    <div class="product-icon"><i class="fas ${product.icon}"></i></div>
+                    <h3>${product.name}</h3>
+                    <div class="product-num">물품분류번호: ${product.num}</div>
+                    <div class="product-desc">${product.desc}</div>
+                    <div class="product-actions">
+                        <span class="view-detail">상세보기 <i class="fas fa-chevron-right"></i></span>
+                        <a href="inquiry.html?product=${encodeURIComponent(product.name)}" class="btn btn-inquiry" onclick="event.stopPropagation();">문의하기</a>
+                    </div>
+                `;
+                
+                // Open modal on card click
+                card.addEventListener('click', () => {
+                    modalName.textContent = product.name;
+                    modalNum.textContent = `물품분류번호: ${product.num}`;
+                    modalSpec.textContent = product.spec;
+                    modalDesc.textContent = product.desc;
+                    modal.classList.add('show');
+                });
+                
+                productGrid.appendChild(card);
+            });
+        }
+
+        // Initialize with all products
+        renderProducts('all');
+
+        // Tab click event
+        filterTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Update active tab
+                filterTabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                
+                // Filter products
+                renderProducts(tab.getAttribute('data-filter'));
+            });
+        });
+
+        // Close modal
+        closeModal.addEventListener('click', () => {
+            modal.classList.remove('show');
+        });
+
+        // Close modal on outside click
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.remove('show');
+            }
+        });
+    </script>
+</body>
+</html>
