@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>업력 및 실적 | 비에이텍㈜</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                <span class="logo-kr">비에이텍㈜</span>
+                <span class="logo-en">Blue Advanced Technology Co., Ltd.</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="intro.html">기업소개</a></li>
+                    <li><a href="product.html">주요제품</a></li>
+                    <li><a href="equipment.html">장비</a></li>
+                    <li><a href="sales_history.html" class="active">업력</a></li>
+                    <li><a href="map.html">찾아오시는 길</a></li>
+                    <li><a href="inquiry.html">문의</a></li>
+                </ul>
+            </nav>
+            <div class="hamburger" id="hamburgerBtn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="intro.html">기업소개</a>
+            <a href="product.html">주요제품</a>
+            <a href="equipment.html">장비</a>
+            <a href="sales_history.html">업력</a>
+            <a href="map.html">찾아오시는 길</a>
+            <a href="inquiry.html">문의</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Page Hero -->
+        <section class="page-hero">
+            <div>
+                <h1>주요 사업 실적</h1>
+                <p>Business Performance & History</p>
+            </div>
+        </section>
+
+        <!-- Stats Banner -->
+        <div class="stats-banner">
+            <div class="stat-item">
+                <i class="fas fa-briefcase"></i>
+                <div class="stat-number" data-target="400">0</div>
+                <div class="stat-text">누적 납품 프로젝트</div>
+            </div>
+            <div class="stat-item">
+                <i class="fas fa-handshake"></i>
+                <div class="stat-number" data-target="150">0</div>
+                <div class="stat-text">주요 협력 기관</div>
+            </div>
+            <div class="stat-item">
+                <i class="fas fa-calendar-alt"></i>
+                <div class="stat-number" data-target="15">0<span>년+</span></div>
+                <div class="stat-text">축적된 기술 노하우</div>
+            </div>
+        </div>
+
+        <!-- Sales History Section -->
+        <section class="section">
+            <div class="section-header">
+                <h2 class="section-title">함께하는 파트너</h2>
+                <p class="section-desc">비에이텍은 다수의 공공기관 및 우수 기업들과 파트너십을 맺고 있습니다.</p>
+            </div>
+
+            <div class="clients-badge-container">
+                <div class="client-badge">춘천시 상하수도사업본부</div>
+                <div class="client-badge">철원군 농업기술센터</div>
+                <div class="client-badge">양양군 상하수도사업소</div>
+                <div class="client-badge">삼척시 상수도사업소</div>
+                <div class="client-badge">강원도인재개발원</div>
+                <div class="client-badge">홍천군청</div>
+                <div class="client-badge">양구군 상하수도사업소</div>
+                <div class="client-badge">화천군청</div>
+                <div class="client-badge">인제군청</div>
+                <div class="client-badge">평창군 상하수도사업소</div>
+                <div class="client-badge">한국농어촌공사 강원본부</div>
+                <div class="client-badge">한국수력원자력(주)</div>
+            </div>
+
+            <div class="section-header" style="margin-top: 80px;">
+                <h2 class="section-title">최근 납품 실적</h2>
+            </div>
+
+            <div class="table-responsive">
+                <table class="history-table">
+                    <thead>
+                        <tr>
+                            <th width="15%">연도</th>
+                            <th width="25%">발주처</th>
+                            <th width="40%">프로젝트명 (납품내역)</th>
+                            <th width="20%">비고</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>2024</td>
+                            <td class="text-left">춘천시 상하수도사업본부</td>
+                            <td class="text-left">퇴계 정수장 가압펌프 교체 공사 (양흡입 벌류트펌프 3대)</td>
+                            <td>완료 <i class="fas fa-file-pdf pdf-icon" onclick="openPdfViewer('https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf', '퇴계 정수장 납품 실적 증명서')" title="실적 증명서 보기"></i></td>
+                        </tr>
+                        <tr>
+                            <td>2024</td>
+                            <td class="text-left">철원군 농업기술센터</td>
+                            <td class="text-left">관내 농업용수 공급용 수중펌프 납품 (수중펌프 15대)</td>
+                            <td>완료 <i class="fas fa-file-pdf pdf-icon" onclick="openPdfViewer('https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf', '철원군 수중펌프 납품 실적 증명서')" title="실적 증명서 보기"></i></td>
+                        </tr>
+                        <tr>
+                            <td>2023</td>
+                            <td class="text-left">양양군 상하수도사업소</td>
+                            <td class="text-left">하수처리장 노후 오수펌프 교체 (오수펌프 5대, 제어반)</td>
+                            <td>완료 <i class="fas fa-file-pdf pdf-icon" onclick="openPdfViewer('https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf', '양양군 오수펌프 납품 실적 증명서')" title="실적 증명서 보기"></i></td>
+                        </tr>
+                        <tr>
+                            <td>2023</td>
+                            <td class="text-left">홍천군청</td>
+                            <td class="text-left">홍천읍 시가지 침수예방 배수펌프장 설치 (대형 수중배수펌프 2대)</td>
+                            <td>완료 <i class="fas fa-file-pdf pdf-icon" onclick="openPdfViewer('https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf', '홍천군 배수펌프장 납품 실적 증명서')" title="실적 증명서 보기"></i></td>
+                        </tr>
+                        <tr>
+                            <td>2022</td>
+                            <td class="text-left">강원도인재개발원</td>
+                            <td class="text-left">청사 급수용 부스터펌프 시스템 구축 (다단 부스터펌프 세트)</td>
+                            <td>완료</td>
+                        </tr>
+                        <tr>
+                            <td>2022</td>
+                            <td class="text-left">삼척시 상수도사업소</td>
+                            <td class="text-left">광역상수도 취수장 취수펌프 납품 (심정용 수중펌프 4대)</td>
+                            <td>완료</td>
+                        </tr>
+                        <tr>
+                            <td>2021</td>
+                            <td class="text-left">양구군 상하수도사업소</td>
+                            <td class="text-left">양구정수장 송수펌프 교체 (입형 다단펌프 3대)</td>
+                            <td>완료</td>
+                        </tr>
+                        <tr>
+                            <td>2021</td>
+                            <td class="text-left">한국농어촌공사 강원본부</td>
+                            <td class="text-left">농업생산기반 정비사업 양수장 펌프 납품 (벌류트펌프 6대)</td>
+                            <td>완료</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div style="text-align: center; margin-top: 30px;">
+                <p style="color: var(--gray-dark); font-size: 0.9rem;">* 상기 내역은 최근 주요 실적의 일부이며, 매년 다수의 프로젝트를 성공적으로 완수하고 있습니다.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div>
+                <div class="footer-logo-kr">비에이텍㈜</div>
+                <div class="footer-logo-en">Blue Advanced Technology Co., Ltd.</div>
+                <div class="footer-info">
+                    <p><i class="fas fa-map-marker-alt"></i> <span>강원특별자치도 춘천시 퇴계공단2길 64 (퇴계제2농공단지내)</span></p>
+                    <p><i class="fas fa-user-tie"></i> <span>대표이사: 조세연 | 사업자등록번호: 221-81-42625</span></p>
+                    <p><i class="fas fa-phone"></i> <span>TEL: 033-264-9243 | FAX: 033-251-5747</span></p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Copyright © 비에이텍㈜. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- PDF Viewer Modal -->
+    <div id="pdfViewerModal" class="pdf-modal-overlay">
+        <div class="pdf-modal-content">
+            <div class="pdf-modal-header">
+                <div class="pdf-modal-title">
+                    <i class="fas fa-file-pdf" style="color: #E53E3E;"></i>
+                    <span id="pdfModalTitle">문서 뷰어</span>
+                </div>
+                <div class="pdf-modal-close" onclick="closePdfViewer()">
+                    <i class="fas fa-times"></i>
+                </div>
+            </div>
+            <div class="pdf-iframe-container">
+                <iframe id="pdfIframe" class="pdf-iframe" src=""></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // Mobile Menu Toggle
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        hamburgerBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('show');
+            const icon = hamburgerBtn.querySelector('i');
+            if (mobileMenu.classList.contains('show')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Counter Animation
+        const counters = document.querySelectorAll('.stat-number');
+        let animated = false;
+
+        function checkScroll() {
+            if (animated) return;
+            
+            const triggerBottom = window.innerHeight / 5 * 4;
+            const bannerTop = document.querySelector('.stats-banner').getBoundingClientRect().top;
+
+            if (bannerTop < triggerBottom) {
+                counters.forEach(counter => {
+                    const updateCount = () => {
+                        const target = +counter.getAttribute('data-target');
+                        const count = +counter.innerText.replace(/[^0-9]/g, '');
+                        const isPlus = counter.innerHTML.includes('<span>');
+                        
+                        const inc = target / 50;
+
+                        if (count < target) {
+                            counter.innerHTML = Math.ceil(count + inc) + (isPlus ? '<span>년+</span>' : '');
+                            setTimeout(updateCount, 30);
+                        } else {
+                            counter.innerHTML = target + (isPlus ? '<span>년+</span>' : '+');
+                        }
+                    };
+                    updateCount();
+                });
+                animated = true;
+            }
+        }
+
+        window.addEventListener('scroll', checkScroll);
+        window.addEventListener('load', checkScroll);
+
+        // PDF Viewer Logic
+        const pdfModal = document.getElementById('pdfViewerModal');
+        const pdfIframe = document.getElementById('pdfIframe');
+        const pdfModalTitle = document.getElementById('pdfModalTitle');
+
+        function openPdfViewer(pdfUrl, title) {
+            pdfModalTitle.innerText = title || '문서 뷰어';
+            // #toolbar=0을 추가하면 일부 브라우저에서 상단 툴바가 가려져 더 깔끔하게 보입니다.
+            pdfIframe.src = pdfUrl + '#toolbar=0';
+            
+            pdfModal.classList.add('show');
+            document.body.style.overflow = 'hidden'; // 배경 스크롤 방지
+        }
+
+        function closePdfViewer() {
+            pdfModal.classList.remove('show');
+            document.body.style.overflow = 'auto'; // 배경 스크롤 복구
+            
+            // 닫힐 때 src를 비워주어 다운로드/재생 멈춤
+            setTimeout(() => {
+                pdfIframe.src = '';
+            }, 300);
+        }
+
+        // 모달 외부 영역(배경) 클릭 시 닫기
+        pdfModal.addEventListener('click', (e) => {
+            if(e.target === pdfModal) {
+                closePdfViewer();
+            }
+        });
+    </script>
+</body>
+</html>
