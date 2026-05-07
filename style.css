@@ -339,3 +339,28 @@ footer { background-color: var(--text-color); color: var(--gray-light); padding:
     .info-card { padding: 30px 20px; }
     .inquiry-form-container { padding: 30px 20px; }
 }
+
+/* Organization Chart */
+.org-chart { padding: 40px 0; overflow-x: auto; text-align: center; }
+.org-tree { display: inline-flex; flex-direction: column; align-items: center; }
+.org-node { background-color: var(--white); border: 2px solid var(--secondary-color); border-radius: 8px; padding: 15px 30px; margin: 0 10px; display: inline-block; position: relative; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: var(--transition); z-index: 2; }
+.org-node:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,119,182,0.15); background-color: var(--primary-color); color: var(--white); border-color: var(--primary-color); }
+.org-node.ceo { background-color: var(--primary-color); color: var(--white); border-color: var(--primary-color); font-weight: 700; font-size: 1.2rem; padding: 20px 40px; }
+.org-node.ceo:hover { background-color: var(--secondary-color); border-color: var(--secondary-color); }
+.org-title { font-weight: 700; margin-bottom: 5px; }
+.org-desc { font-size: 0.9rem; opacity: 0.8; font-weight: 400; }
+.org-level { display: flex; justify-content: center; position: relative; padding-top: 40px; }
+.org-level::before { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 2px; height: 40px; background-color: var(--secondary-color); }
+.org-level-group { display: flex; position: relative; }
+/* Horizontal connecting line for siblings */
+.org-level-group::before { content: ''; position: absolute; top: 0; left: calc(12.5%); width: calc(75%); height: 2px; background-color: var(--secondary-color); }
+.org-branch { position: relative; padding-top: 20px; flex: 1; display: flex; flex-direction: column; align-items: center; }
+.org-branch::before { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 2px; height: 20px; background-color: var(--secondary-color); }
+@media (max-width: 768px) {
+    .org-level-group { flex-direction: column; gap: 20px; }
+    .org-level-group::before { display: none; }
+    .org-branch::before { display: none; }
+    .org-level::before { height: 20px; }
+    .org-level { padding-top: 20px; }
+    .org-node { width: 100%; max-width: 250px; margin: 0 auto; }
+}

@@ -57,8 +57,11 @@
 
         <!-- Company Overview -->
         <section class="section">
-            <div class="section-header">
-                <h2 class="section-title">회사 개요</h2>
+            <div class="section-header" style="display: flex; flex-direction: column; align-items: center; gap: 15px;">
+                <h2 class="section-title" style="margin-bottom: 0;">회사 개요</h2>
+                <a href="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" target="_blank" class="btn btn-primary" style="font-size: 1rem; padding: 8px 16px;">
+                    <i class="fas fa-file-pdf"></i> 회사 지명원 보기
+                </a>
             </div>
             <table class="overview-table">
                 <tbody>
@@ -127,6 +130,51 @@
                         <div class="vision-icon"><i class="fas fa-handshake"></i></div>
                         <h3>고객신뢰</h3>
                         <p style="margin-top: 10px; color: var(--gray-dark);">고객의 만족을 최우선으로 생각하며 상생을 추구합니다.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Organization Chart -->
+        <section class="section" style="background-color: var(--bg-color); max-width: 100%;">
+            <div class="section" style="padding: 40px 20px;">
+                <div class="section-header">
+                    <h2 class="section-title">조직도</h2>
+                </div>
+                <div class="org-chart">
+                    <div class="org-tree">
+                        <div class="org-node ceo">
+                            <div class="org-title">대표이사</div>
+                            <div class="org-desc">CEO</div>
+                        </div>
+                        <div class="org-level">
+                            <div class="org-level-group">
+                                <div class="org-branch">
+                                    <div class="org-node">
+                                        <div class="org-title">경영지원부</div>
+                                        <div class="org-desc">기획 · 총무 · 인사</div>
+                                    </div>
+                                </div>
+                                <div class="org-branch">
+                                    <div class="org-node">
+                                        <div class="org-title">영업부</div>
+                                        <div class="org-desc">마케팅 · 국내/해외영업</div>
+                                    </div>
+                                </div>
+                                <div class="org-branch">
+                                    <div class="org-node">
+                                        <div class="org-title">생산부</div>
+                                        <div class="org-desc">제조설비 · 자재 · 물류</div>
+                                    </div>
+                                </div>
+                                <div class="org-branch">
+                                    <div class="org-node">
+                                        <div class="org-title">품질관리부</div>
+                                        <div class="org-desc">기술연구 · 검사 · CS</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

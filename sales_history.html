@@ -97,7 +97,12 @@
             </div>
 
             <div class="section-header" style="margin-top: 80px;">
-                <h2 class="section-title">최근 납품 실적</h2>
+                <h2 class="section-title" style="display: flex; align-items: center; justify-content: center; gap: 15px;">
+                    최근 납품 실적
+                    <a href="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" target="_blank" class="btn btn-primary" style="font-size: 1rem; padding: 8px 16px;">
+                        <i class="fas fa-certificate"></i> 주요 실적 증명서 보기
+                    </a>
+                </h2>
             </div>
 
             <div class="table-responsive">
@@ -115,25 +120,25 @@
                             <td>2024</td>
                             <td class="text-left">춘천시 상하수도사업본부</td>
                             <td class="text-left">퇴계 정수장 가압펌프 교체 공사 (양흡입 벌류트펌프 3대)</td>
-                            <td>완료 <i class="fas fa-file-pdf pdf-icon" onclick="openPdfViewer('https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf', '퇴계 정수장 납품 실적 증명서')" title="실적 증명서 보기"></i></td>
+                            <td>완료</td>
                         </tr>
                         <tr>
                             <td>2024</td>
                             <td class="text-left">철원군 농업기술센터</td>
                             <td class="text-left">관내 농업용수 공급용 수중펌프 납품 (수중펌프 15대)</td>
-                            <td>완료 <i class="fas fa-file-pdf pdf-icon" onclick="openPdfViewer('https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf', '철원군 수중펌프 납품 실적 증명서')" title="실적 증명서 보기"></i></td>
+                            <td>완료</td>
                         </tr>
                         <tr>
                             <td>2023</td>
                             <td class="text-left">양양군 상하수도사업소</td>
                             <td class="text-left">하수처리장 노후 오수펌프 교체 (오수펌프 5대, 제어반)</td>
-                            <td>완료 <i class="fas fa-file-pdf pdf-icon" onclick="openPdfViewer('https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf', '양양군 오수펌프 납품 실적 증명서')" title="실적 증명서 보기"></i></td>
+                            <td>완료</td>
                         </tr>
                         <tr>
                             <td>2023</td>
                             <td class="text-left">홍천군청</td>
                             <td class="text-left">홍천읍 시가지 침수예방 배수펌프장 설치 (대형 수중배수펌프 2대)</td>
-                            <td>완료 <i class="fas fa-file-pdf pdf-icon" onclick="openPdfViewer('https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf', '홍천군 배수펌프장 납품 실적 증명서')" title="실적 증명서 보기"></i></td>
+                            <td>완료</td>
                         </tr>
                         <tr>
                             <td>2022</td>
@@ -187,24 +192,6 @@
         </div>
     </footer>
 
-    <!-- PDF Viewer Modal -->
-    <div id="pdfViewerModal" class="pdf-modal-overlay">
-        <div class="pdf-modal-content">
-            <div class="pdf-modal-header">
-                <div class="pdf-modal-title">
-                    <i class="fas fa-file-pdf" style="color: #E53E3E;"></i>
-                    <span id="pdfModalTitle">문서 뷰어</span>
-                </div>
-                <div class="pdf-modal-close" onclick="closePdfViewer()">
-                    <i class="fas fa-times"></i>
-                </div>
-            </div>
-            <div class="pdf-iframe-container">
-                <iframe id="pdfIframe" class="pdf-iframe" src=""></iframe>
-            </div>
-        </div>
-    </div>
-
     <!-- Scripts -->
     <script>
         // Mobile Menu Toggle
@@ -257,37 +244,6 @@
 
         window.addEventListener('scroll', checkScroll);
         window.addEventListener('load', checkScroll);
-
-        // PDF Viewer Logic
-        const pdfModal = document.getElementById('pdfViewerModal');
-        const pdfIframe = document.getElementById('pdfIframe');
-        const pdfModalTitle = document.getElementById('pdfModalTitle');
-
-        function openPdfViewer(pdfUrl, title) {
-            pdfModalTitle.innerText = title || '문서 뷰어';
-            // #toolbar=0을 추가하면 일부 브라우저에서 상단 툴바가 가려져 더 깔끔하게 보입니다.
-            pdfIframe.src = pdfUrl + '#toolbar=0';
-            
-            pdfModal.classList.add('show');
-            document.body.style.overflow = 'hidden'; // 배경 스크롤 방지
-        }
-
-        function closePdfViewer() {
-            pdfModal.classList.remove('show');
-            document.body.style.overflow = 'auto'; // 배경 스크롤 복구
-            
-            // 닫힐 때 src를 비워주어 다운로드/재생 멈춤
-            setTimeout(() => {
-                pdfIframe.src = '';
-            }, 300);
-        }
-
-        // 모달 외부 영역(배경) 클릭 시 닫기
-        pdfModal.addEventListener('click', (e) => {
-            if(e.target === pdfModal) {
-                closePdfViewer();
-            }
-        });
     </script>
 </body>
 </html>
